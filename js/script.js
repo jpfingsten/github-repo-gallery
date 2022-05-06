@@ -43,7 +43,7 @@ const displayRepos = function (repos) {
     for (const eachRepo of repos) {
         const li = document.createElement("li");
         li.classList.add("repo");
-        li.innerHTML = `<h3>${repos.name}</h3>`; //for some reason, this is returning "undefined"
+        li.innerHTML = `<h3>${eachRepo.name}</h3>`;
         repoList.append(li);
     }
 }
