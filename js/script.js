@@ -1,6 +1,8 @@
-const overview = document.querySelector(".overview") // overview div where profile info is displayed
+const overview = document.querySelector(".overview"); // overview div where profile info is displayed
 const username = "jpfingsten"; // GitHub username
-const repoList = document.querySelector(".repo-list") // ul where repos are displayed
+const repoList = document.querySelector(".repo-list"); // ul where repos are displayed
+const repos = document.querySelector(".repos"); // section wrapping ul in which repos are displayed
+const repoData = document.querySelector(".repo-data"); // where individual repo data will appear
 
 // fetch user info from GitHub's REST API
 const fetchInfo = async function () {
@@ -47,3 +49,10 @@ const displayRepos = function (repos) {
         repoList.append(li);
     }
 }
+
+// add click event for repos
+repoList.addEventListener("click", function (e) {
+    if (e.target.matches("h3")) {
+        const repoName = e.target.innerText;
+    }
+})
