@@ -64,9 +64,24 @@ const getRepoInfo = async function (repoName) {
     const repoInfo = await res.json();
     const fetchLanguages = await fetch(`https://api.github.com/repos/${username}/${repoName}/languages`);
     const languageData = await fetchLanguages.json();
-    const languagesArray = [];
+    const languages = [];
     for (let language in languageData) {
-        languagesArray.push(`${language}`);
-    }
-    console.log(languagesArray);
+        languages.push(`${language}`);
+    };
+
+    displayRepoInfo(repoInfo, languages);
+}
+
+//display clicked repo's info
+const displayRepoInfo = async function (repoInfo, languages) {
+    repoData.innerHTML = "";
+    const div = document.createElement("div");
+    div.innerHTML = `<h3>Name: ${repoInfo.name}</h3>
+    <p><b>Description:</b> ${repoInfo.description}</p>
+    <p><b>Default Branch:</b> ${repoInfo.default_branch}</p>
+    <p><b>Languages:</b> ${languages.join(", ")}</p>
+    <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
+    repoData.append(div);
+    repoData.classList.remove("hide");
+    repos.classList.add("hide");
 }
