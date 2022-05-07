@@ -10,7 +10,6 @@ const filterInput = document.querySelector(".filter-repos"); // search box
 const fetchInfo = async function () {
     const res = await fetch(`https://api.github.com/users/${username}`);
     const userInfo = await res.json();
-    /*    console.log(userInfo);*/
     fetchedInfo(userInfo);
 };
 
