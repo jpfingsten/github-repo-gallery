@@ -38,6 +38,7 @@ const fetchedInfo = function (info) {
 const fetchRepos = async function () {
     const res = await fetch(`https://api.github.com/users/${username}/repos?sort=created&per_page=100`);
     const repoData = await res.json();
+    filterInput.classList.remove("hide");
 
     displayRepos(repoData);
 }
