@@ -3,6 +3,8 @@ const username = "jpfingsten"; // GitHub username
 const repoList = document.querySelector(".repo-list"); // ul where repos are displayed
 const repos = document.querySelector(".repos"); // section wrapping ul in which repos are displayed
 const repoData = document.querySelector(".repo-data"); // where individual repo data will appear
+const backButton = document.querySelector(".view-repos"); // the "back to repo gallery" button
+const filterInput = document.querySelector(".filter-repos"); // search input
 
 // fetch user info from GitHub's REST API
 const fetchInfo = async function () {
@@ -84,4 +86,12 @@ const displayRepoInfo = async function (repoInfo, languages) {
     repoData.append(div);
     repoData.classList.remove("hide");
     repos.classList.add("hide");
+    backButton.classList.remove("hide");
 }
+
+//add click event to back button
+backButton.addEventListener("click", function (e) {
+    repos.classList.remove("hide");
+    repoData.classList.add("hide");
+    this.classList.add("hide");
+})
