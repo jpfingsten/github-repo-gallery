@@ -211,6 +211,7 @@ section.repo-data {
     display: block;
     background-color: #483978;
     border: 1px solid #483978;
+    text-align: center;
 }
 
 .repo-data .visit:hover {
